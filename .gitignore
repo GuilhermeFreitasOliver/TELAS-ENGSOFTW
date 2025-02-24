@@ -1,9 +1,18 @@
-# Dependências
-/node_modules
+# Dependências do Node
+/node_modules/
 
-# Build de produção
+# Artefatos de build
 /build
 /dist
+
+# Arquivos de lock (excluindo package-lock.json)
+package-lock.json
+yarn.lock
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Arquivos de ambiente
 .env
@@ -12,15 +21,10 @@
 .env.test.local
 .env.production.local
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
 # Cache
 .cache/
 
-# Sistema e IDEs
+# Arquivos e pastas de sistemas e IDEs
 .DS_Store
 .idea/
 .vscode/
