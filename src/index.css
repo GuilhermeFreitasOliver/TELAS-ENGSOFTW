@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .campo-texto {
+    @apply w-full px-4 py-3 rounded-lg border-2 border-cinza-claro focus:border-azul-primario focus:ring focus:ring-azul-primario/20 transition-all;
+  }
+  
+  .botao-primario {
+    @apply w-full py-3 bg-azul-primario hover:bg-azul-hover text-white font-semibold rounded-lg transition-all hover:-translate-y-0.5;
+  }
+  
+  .cartao-beneficio {
+    @apply p-5 rounded-xl bg-white/10 transition-all hover:-translate-y-1;
+  }
+  
+  .icone-beneficio {
+    @apply w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 mb-3 transition-transform;
+  }
+
+  .sombra-suave {
+    @apply shadow-[0_0_40px_rgba(0,0,0,0.1)];
+  }
+
+  .espaco-y-4 {
+    @apply space-y-4;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
