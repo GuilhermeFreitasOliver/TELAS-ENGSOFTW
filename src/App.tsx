@@ -1,30 +1,33 @@
-import React from 'react';
+import React, { useEffect, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ForgotPassword from './pages/ForgotPassword';
-import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './index.css';
 
+// Carregamento dinâmico para otimizar o tempo inicial de carregamento
+const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
+
 function App() {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    // Executa AOS após um pequeno atraso para evitar bloqueios no carregamento
+    setTimeout(() => {
+      AOS.init({ duration: 500, once: true });
+    }, 300);
   }, []);
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/recuperar-senha" element={<ForgotPassword />} />
-      </Routes>
+      <Suspense fallback={<div>Carregando...</div>}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/recuperar-senha" element={<ForgotPassword />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
 
-export default App
+export default React.memo(App);
