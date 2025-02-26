@@ -11,7 +11,7 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 
 function App() {
   useEffect(() => {
-    // Executa AOS após um pequeno atraso para 
+    // Executa AOS após um pequeno atraso para
     setTimeout(() => {
       AOS.init({ duration: 500, once: true });
     }, 300);
@@ -19,7 +19,6 @@ function App() {
 
   return (
     <Router>
-      <Suspense fallback={<div>Carregando...</div>}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
