@@ -24,7 +24,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/recuperar-senha" element={<ForgotPassword />} />
         </Routes>
-      </Suspense>
     </Router>
   );
 }
