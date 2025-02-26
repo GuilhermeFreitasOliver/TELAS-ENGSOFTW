@@ -11,7 +11,7 @@ const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
 
 function App() {
   useEffect(() => {
-    // Executa AOS após um pequeno atraso para evitar bloqueios no carregamento
+    // Executa AOS após um pequeno atraso para 
     setTimeout(() => {
       AOS.init({ duration: 500, once: true });
     }, 300);
